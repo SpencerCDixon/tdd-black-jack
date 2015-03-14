@@ -11,18 +11,21 @@ class Game
 
   def play
     welcome_screen
-    start_game
+    initial_deal
     player_turn
   end
 
   def welcome_screen
     puts <<-EOH
-    Welcome to Black Jack!
-    Some more rules and stuff will go here
+############################################
+## Welcome to Black Jack!                 ##
+## Some more rules and stuff will go here ##
+############################################
+
     EOH
   end
 
-  def start_game
+  def initial_deal
     2.times { dealer.deal(player) }
     puts
     2.times { dealer.deal(dealer) }
@@ -37,9 +40,9 @@ class Game
   end
 end
 
-player = Player.new("spencer")
-dealer = Dealer.new("dealer")
+# player = Player.new("spencer")
+# dealer = Dealer.new("dealer")
 
-game = Game.new(player, dealer)
-game.play
-binding.pry
+# game = Game.new(player, dealer)
+# game.play
+# binding.pry
