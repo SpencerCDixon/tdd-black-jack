@@ -19,10 +19,10 @@ describe Deck do
     end
   end
 
-  describe "#deal" do
+  describe "#draw!" do
     it "deals the top card in the deck" do
       correct_card = deck.cards[-1]
-      expect(deck.deal).to eq correct_card
+      expect(deck.draw!).to eq correct_card
     end
   end
 end

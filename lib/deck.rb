@@ -10,16 +10,15 @@ class Deck
   end
 
   def build_deck
-    cards = []
-    SUITS.each do |suit|
+    SUITS.each_with_object([]) do |suit, arr|
       RANKS.each do |rank|
-        cards << Card.new(suit, rank)
+        arr << Card.new(suit, rank)
       end
-    end
-    cards.shuffle!
+    end.shuffle!
   end
 
-  def deal
+  def draw!
     cards.pop
   end
 end
+
