@@ -7,12 +7,15 @@ class Game
   def initialize(player, dealer)
     @player = player
     @dealer = dealer
+    @rounds = 0
   end
 
   def play
-    welcome_screen
-    initial_deal
+    welcome_screen if @rounds == 0
+    start_round
     player_turn
+
+    @rounds += 1
   end
 
   def welcome_screen
@@ -25,24 +28,32 @@ class Game
     EOH
   end
 
-  def initial_deal
-    2.times { dealer.deal(player) }
+  def start_round
+    2.times do
+      dealer.deal(player)
+      dealer.deal(dealer)
+    end
     puts
-    2.times { dealer.deal(dealer) }
+    puts player.hand_summary
   end
 
   def player_turn
     until player.get_choice == "s"
       dealer.deal(player)
-      puts
+      check_bust
       puts player.hand_summary
+    end
+  end
+
+  def check_bust
+    if player.hand.total_score > 21
+      puts "You bust."
+      play
     end
   end
 end
 
-# player = Player.new("spencer")
-# dealer = Dealer.new("dealer")
-
-# game = Game.new(player, dealer)
-# game.play
-# binding.pry
+player = Player.new("spencer")
+dealer = Dealer.new("dealer")
+game = Game.new(player, dealer)
+game.play

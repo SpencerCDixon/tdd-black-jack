@@ -15,13 +15,13 @@ describe Game do
     end
   end
 
-  describe "#initial_deal" do
+  describe "#start_round" do
     it "puts a card into the hand" do
       player = Player.new('spencer')
       dealer = Dealer.new('dealer')
       game = Game.new(player, dealer)
 
-      game.initial_deal
+      game.start_round
       expect(player.cards.count).to eq 2
       expect(dealer.cards.count).to eq 2
     end
