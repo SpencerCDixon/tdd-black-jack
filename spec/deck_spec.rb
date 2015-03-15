@@ -1,5 +1,4 @@
 require_relative '../lib/deck'
-require 'pry'
 
 describe Deck do
   let(:deck) { Deck.new }

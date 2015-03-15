@@ -1,6 +1,5 @@
 require_relative '../lib/person'
 require_relative '../lib/deck'
-require 'pry'
 
 describe Person do
   describe "#initialize" do
@@ -24,6 +23,16 @@ describe Person do
     end
   end
 
+  describe "#total_score" do
+    it "returns total_score from hand" do
+      spencer = Person.new("spencer")
+      hand = spencer.hand.cards
+      hand << Card.new('heart', 10)
+
+      expect(spencer.total_score).to eq 10
+    end
+  end
+
   describe "#hand_summary" do
     let(:spencer) { Person.new("spencer") }
 
@@ -34,7 +43,6 @@ describe Person do
     it "returns correct summary of cards" do
       card = Card.new('♦', 10)
       spencer.cards << card
-      hand = spencer.hand
 
       expect(spencer.hand_summary).to eq "Spencer has: 10♦  Total: 10"
     end

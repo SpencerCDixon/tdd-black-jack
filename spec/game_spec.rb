@@ -1,7 +1,6 @@
 require_relative '../lib/game'
 require_relative '../lib/dealer'
 require_relative '../lib/player'
-require 'pry'
 
 describe Game do
   describe "#initialize" do
