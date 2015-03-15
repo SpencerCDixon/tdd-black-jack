@@ -4,7 +4,7 @@ class Person
   attr_reader :hand, :name
   def initialize(name)
     @hand = Hand.new
-    @name = name.capitalize
+    @name = name.downcase.capitalize
   end
 
   def cards
@@ -18,7 +18,7 @@ class Person
   def hand_summary
     summary = "#{name} has: "
     hand.cards.each { |c| summary << "#{c} " }
-    summary << " Total: #{hand.total_score}"
+    summary << " Total: #{total_score}"
     summary
   end
 end

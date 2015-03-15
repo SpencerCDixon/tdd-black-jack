@@ -1,24 +1,17 @@
 require_relative 'player'
 require_relative 'dealer'
-require 'colorize'
 
 class Game
   attr_reader :player, :dealer
-  def initialize
-    @player = get_player_name
+  def initialize(player)
+    @player = player
     @dealer = Dealer.new("dealer")
-    @rounds = 0
-  end
-
-  def get_player_name
-    print "What's your name?: "
-    name = gets.chomp.downcase
-    Player.new(name)
+    @round_num = 0
   end
 
   def play
-    @rounds += 1
-    puts welcome_screen if @rounds == 1
+    @round_num += 1
+    puts welcome_screen if @round_num == 1
     start_round
     player_turn
     dealer_turn
@@ -32,8 +25,8 @@ class Game
       dealer.deal(dealer)
       puts
     end
-    puts player.hand_summary.colorize(:green)
-    puts dealer.hand_summary.colorize(:red)
+    puts player.hand_summary
+    puts dealer.hand_summary
     puts
   end
 
@@ -85,7 +78,7 @@ class Game
     %Q{
 
 ===============================
-  #{person.name} busts. Round: #{@rounds}
+  #{person.name} busts. Round: #{@round_num}
 ===============================
 
     }

@@ -9,7 +9,7 @@ class Dealer < Person
   end
 
   def deal(player)
-    card = deck.cards.pop
+    card = deck.draw!
     puts "#{player.name} was dealt a #{card}"
     player.cards << card
   end
