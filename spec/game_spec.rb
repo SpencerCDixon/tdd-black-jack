@@ -68,7 +68,5 @@ describe Game do
       expect(game.check_bust(player)).to eq nil
     end
   end
-
-
 end
 
