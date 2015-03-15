@@ -1,15 +1,15 @@
 class Card
-  attr_reader :rank
+  attr_reader :rank, :suit
   def initialize(suit, rank)
     @suit = suit
     @rank = rank
   end
 
   def value
-    ["J", "Q", "K"].include?(@rank) ? 10 : @rank
+    ["J", "Q", "K"].include?(rank) ? 10 : rank
   end
 
   def to_s
-    "#{@rank}#{@suit}"
+    "#{rank}#{suit}"
   end
 end
