@@ -21,4 +21,3 @@ class Deck
     cards.pop
   end
 end
-

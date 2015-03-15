@@ -6,7 +6,7 @@ class Card
   end
 
   def value
-    ["J","Q","K"].include?(@rank) ? 10 : @rank
+    ["J", "Q", "K"].include?(@rank) ? 10 : @rank
   end
 
   def to_s

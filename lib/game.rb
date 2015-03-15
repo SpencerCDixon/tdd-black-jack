@@ -75,21 +75,21 @@ class Game
   private
 
   def bust_message(person)
-    %Q{
+    %(
 
 ===============================
   #{person.name} busts. Round: #{@round_num}
 ===============================
 
-    }
+    )
   end
 
   def welcome_screen
-    %Q{
+    %(
 ############################################
       Welcome to Black Jack #{player.name}!
 ############################################
 
-    }
+    )
   end
 end
