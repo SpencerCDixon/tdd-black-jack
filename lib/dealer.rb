@@ -1,6 +1,5 @@
 require_relative 'person'
 require_relative 'deck'
-require 'pry'
 
 class Dealer < Person
   attr_reader :deck

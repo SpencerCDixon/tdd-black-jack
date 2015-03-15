@@ -11,6 +11,10 @@ class Person
     hand.cards
   end
 
+  def total_score
+    hand.total_score
+  end
+
   def hand_summary
     summary = "#{name} has: "
     hand.cards.each { |c| summary << "#{c} " }

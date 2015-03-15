@@ -64,6 +64,34 @@ describe Hand do
 
       expect(hand.total_score).to eq 12
     end
+
+    it "converts multiple aces to 1 if total is > 9" do
+      card1 = Card.new("heart", "A")
+      card2 = Card.new("heart", 10)
+      card3 = Card.new("heart", "A")
+      card4 = Card.new("heart", "A")
+      hand = Hand.new
+      hand.cards << card1
+      hand.cards << card2
+      hand.cards << card3
+      hand.cards << card4
+
+      expect(hand.total_score).to eq 13
+    end
+
+    it "converts multiple aces to 1 if total is > 9" do
+      card1 = Card.new("heart", "A")
+      card2 = Card.new("heart", 5)
+      card3 = Card.new("heart", "A")
+      card4 = Card.new("heart", "A")
+      hand = Hand.new
+      hand.cards << card1
+      hand.cards << card2
+      hand.cards << card3
+      hand.cards << card4
+
+      expect(hand.total_score).to eq 18
+    end
   end
 end
 
