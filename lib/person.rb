@@ -19,6 +19,5 @@ class Person
     summary = "#{name} has: "
     hand.cards.each { |c| summary << "#{c} " }
     summary << " Total: #{total_score}"
-    summary
   end
 end
